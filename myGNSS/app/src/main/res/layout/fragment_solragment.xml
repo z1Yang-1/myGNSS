@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Sol.Solragment">
+<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    tools:ignore="UselessParent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SOLUTION SETTING"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-black"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#808080"
+            android:layout_gravity="center"/> <!-- 黑色线 -->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/ion_model"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/ionosphere_model_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16sp"
+            android:minHeight="48dp"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/tropo"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/troposphere_model_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16sp"
+            android:minHeight="48dp"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/azel"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/azel_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="48dp"
+            android:layout_marginStart="16sp"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="CN/0 Threshold"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/CN0_Threshold_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16sp"
+            android:minHeight="48dp"
+            android:layout_weight="1"
+             />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Frequency"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/Frequency_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minHeight="48dp"
+                android:layout_marginStart="16sp"
+                android:layout_gravity="center_vertical" />
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GNSS System"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:text="BDS" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:text="GPS" />
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:text="GLONASS" />
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:text="GALILEO" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#808080" /> <!-- 黑色线 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OUTPUT SETTING"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-black"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#808080"
+            android:layout_gravity="center"/> <!-- 黑色线 -->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/record_settings"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp"
+            android:layout_weight="1"
+            tools:ignore="Suspicious0dp" />
+        <!-- 添加开关按钮 -->
+        <Switch
+            android:id="@+id/switch_pseudo_range"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/record_pos_format"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButtonXYZ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ECEF_xyz" />
+
+            <RadioButton
+                android:id="@+id/radioButtonBLH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/blh" />
+        </RadioGroup>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Record Mode"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButtonAutomatic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Automatic"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/radioButtonManual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Manual" />
+        </RadioGroup>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#808080" /> <!-- 黑色线 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AR STRATEGY"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-black"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#808080"
+            android:layout_gravity="center"/> <!-- 黑色线 -->
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Integer_abiguity_Res"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/ambiguity_Res_spinner_GPS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:minHeight="48dp"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Integer Ambiguity Res(BDS)"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/ambiguity_Res_spinner_BDS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:minHeight="48dp"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/integer_ambiguity_res_glo"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/ambiguity_Res_spinner_GLO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:minHeight="48dp"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/min_ratio_to_fix_ambiguity"
+            android:layout_gravity="center_vertical"
+            android:textSize="16sp" />
+        <EditText
+            android:id="@+id/min_fix_res_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="3.0"
+            android:textSize="16sp"
+            android:hint="@string/please_enter_a_value"
+            android:inputType="numberDecimal" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#808080" /> <!-- 黑色线 -->
+    <Button
+        android:id="@+id/btn_save_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SAVE">
+
+    </Button>
+
+</LinearLayout>
+    </ScrollView>
+</FrameLayout>

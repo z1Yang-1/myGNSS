@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.RTK.RtkFragment">
+
+    <TextView
+        android:id="@+id/rtksat"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:text="@string/sppsatcount"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/rtksatcount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/rtksatcount"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/rtksat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <!-- RTCM 卫星数及数量的TextView -->
+    <TextView
+        android:id="@+id/rtk_rtcmsat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/rtcm"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/rtk_rtcmmesgcount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtksat"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/rtk_rtcmmesgcount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="RTCM Count"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/rtk_rtcmsat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtksatcount"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <!-- 新增的TextView -->
+    <TextView
+        android:id="@+id/rtk_latitude"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/latitude"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/rtk_latitudeValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_rtcmsat"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/rtk_latitudeValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="lat_values"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/rtk_latitude"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_rtcmmesgcount"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/rtk_longitude"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/longitude"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/rtk_longitudeValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_latitude"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/rtk_longitudeValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="lon_values"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/rtk_longitude"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_latitudeValue"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/rtk_elevation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/height"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/rtk_elevationValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_longitude"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/rtk_elevationValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="elevation values"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/rtk_elevation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_longitudeValue"
+        app:layout_constraintWidth_percent="0.5" />
+    <TextView
+        android:id="@+id/rtk_solutionStatus"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:text="Solution State："
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/rtk_solutionStatusValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_elevation"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/rtk_solutionStatusValue"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:text="Q"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/rtk_solutionStatus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_elevationValue"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/rtk_solution_ratio"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:text="Ratio："
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/rtk_solution_ratio_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_solutionStatus"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/rtk_solution_ratio_value"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:text="0"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/rtk_solution_ratio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_solutionStatusValue"
+        app:layout_constraintWidth_percent="0.5" />
+    <TextView
+        android:id="@+id/rtk_v_accuracy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="East Accuracy"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/rtk_v_accuracy_Value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_solution_ratio"
+        app:layout_constraintWidth_percent="0.5" />
+    <TextView
+        android:id="@+id/rtk_v_accuracy_Value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="0.0"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/rtk_v_accuracy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_solution_ratio_value"
+        app:layout_constraintWidth_percent="0.5" />
+    <TextView
+        android:id="@+id/rtk_h_accuracy"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:text="North Accuracy"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/rtk_h_accuracy_Value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_v_accuracy"
+        app:layout_constraintWidth_percent="0.5" />
+    <TextView
+        android:id="@+id/rtk_h_accuracy_Value"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:text="0.0"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/rtk_h_accuracy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_v_accuracy_Value"
+        app:layout_constraintWidth_percent="0.5" />
+    <TextView
+        android:id="@+id/rtk_u_accuracy"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:text="Up Accuracy"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/rtk_u_accuracy_Value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_h_accuracy"
+        app:layout_constraintWidth_percent="0.5" />
+    <TextView
+        android:id="@+id/rtk_u_accuracy_Value"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:text="0.0"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/rtk_u_accuracy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rtk_h_accuracy_Value"
+        app:layout_constraintWidth_percent="0.5" />
+
+
+    <!-- ScrollView 的 top 调整为紧跟 elevationValue -->
+    <View
+        android:id="@+id/line"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_red_light"
+        app:layout_constraintBottom_toTopOf="@+id/rtk_u_accuracy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollview"
+        app:layout_constraintVertical_bias="0.949" />
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp" >
+        <TextView
+            android:id="@+id/rtktext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp" />
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_about"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/update_eph" />
+    <item
+        android:id="@+id/action_mixed_eph"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/update_mixed" />
+    <item
+        android:id="@+id/action_clean"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/clear_files" />
+<!--    <item-->
+<!--        android:id="@+id/action_setting"-->
+<!--        android:icon="@drawable/ic_launcher_foreground"-->
+<!--        android:title="@string/settings" />-->
+<!--    <item-->
+<!--        android:id="@+id/action_gnss"-->
+<!--        android:icon="@drawable/ic_launcher_foreground"-->
+<!--        android:title="@string/gnsssys" />-->
+    <item
+        android:id="@+id/action_check"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/checkposdata" />
+    <item
+        android:id="@+id/action_clean_pos"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/clean_posdata" />
+    <item
+        android:id="@+id/action_exit"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/exit" />
+</menu>

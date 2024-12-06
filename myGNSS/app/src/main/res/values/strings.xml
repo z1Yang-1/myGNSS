@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">myGNSS</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">myGNSS</string>
+    <string name="nav_header_subtitle">If you encounter any problems, please contact:2020231590@jsnu.edu.cn</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Satellite Status</string>
+    <string name="menu_gallery">DGPS</string>
+    <string name="menu_slideshow">Spp</string>
+    <string name="menu_Ntrip">Ntrip</string>
+
+    <string name="measurement_info">Measurement info</string>
+    <string name="navi_info">Navigation info</string>
+    <string name="Spp">Real-time Pseudorange Single Point Positioning</string>
+    <string name="Ppp">实时精密单点单点</string>
+    <string name="Dgps">实时伪距差分定位</string>
+    <string name="post_compute">事后解算</string>
+    <string name="sat_state">Satellite State</string>
+    <string name="result">Result Files</string>
+    <string name="gnsssys">Satellite System Selection</string>
+    <string name="exit">Exit</string>
+    <string name="settings">CN0 Threshold Settings</string>
+    <string name="clear_data">清空数据库</string>
+    <string name="check_data">查看数据库</string>
+    <string name="clear_files">Clean Eph Files</string>
+    <string name="update_eph">Update Broadcast Eph</string>
+    <string name="sppsatcount">Valid Satellite：</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="latitude">Latitude:</string>
+    <string name="longitude">Longitude:</string>
+    <string name="height">Elevation:</string>
+    <string name="rtcm">RTCM Satellite:</string>
+    <string name="map">Map</string>
+    <string name="update_mixed">Update Mixed Eph</string>
+    <string name="solution">Settings</string>
+    <string name="ion_model">Ionosphere Model</string>
+    <string name="checkposdata">Check Pos Data</string>
+    <string name="tropo">Troposphere Model</string>
+    <string name="azel">Cut-off Angle</string>
+    <string name="clean_posdata">Clean Pos Data</string>
+    <string name="Integer_abiguity_Res">Integer Ambiguity Res(GPS)</string>
+    <string name="record_pos_format">Solution Format</string>
+    <string name="record_settings">Record raw data during positioning (only for differential positioning)</string>
+    <string name="ECEF_xyz">XYZ</string>
+    <string name="blh">BLH</string>
+    <string name="please_enter_a_value">Please enter a value</string>
+    <string name="min_ratio_to_fix_ambiguity">Min Ratio to Fix Ambiguity</string>
+    <string name="integer_ambiguity_res_glo">Integer Ambiguity Res(GLO)</string>
+    <string name="name_value">1111</string>
+</resources>
