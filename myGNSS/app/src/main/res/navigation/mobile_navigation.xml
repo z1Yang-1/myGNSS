@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.myapplication.ui.status.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_Ntrip"
+        android:name="com.example.myapplication.ui.Ntrip.NtripFragment"
+        android:label="@string/menu_Ntrip"
+        tools:layout="@layout/fragment_ntrip" />
+
+    <fragment
+        android:id="@+id/nav_rtk"
+        android:name="com.example.myapplication.ui.RTK.RtkFragment"
+        android:label="rtk"
+        tools:layout="@layout/fragment_rtk" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.myapplication.ui.DGPS.DgpsFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <activity
+        android:id="@+id/nav_spp"
+        android:name="com.example.myapplication.ui.Spp.SPPActivity"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/activity_sppactivity" />
+
+    <activity
+        android:id="@+id/nav_rtk_activity"
+        android:name="com.example.myapplication.ui.RTK.RTKActivity"
+        android:label="RTK"
+        tools:layout="@layout/activity_rtkactivity" />
+
+    <activity
+        android:id="@+id/nav_dgps"
+        android:name="com.example.myapplication.ui.DGPS.DGPSActivity"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/activity_dgpsactivity" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.myapplication.ui.Spp.SppFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_spp" />
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="com.example.myapplication.ui.Map.MapFragment"
+        android:label="Map"
+        tools:layout="@layout/fragment_spp" />
+    <fragment
+        android:id="@+id/nav_solution"
+        android:name="com.example.myapplication.ui.Sol.Solragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_solragment" />
+
+</navigation>
