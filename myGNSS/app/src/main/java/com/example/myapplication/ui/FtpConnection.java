@@ -113,40 +113,72 @@ public class FtpConnection {
         }
         if(option == 1)
         {
-            //只获取广播星历文件
-            //获取广播星历文件列表
-            FTPFile[] files = ftpClient.listFiles(remoteDirPath[3]);
-            // 寻找最新的广播星历的.gz文件
-            for (FTPFile file : files) {
-                if (file.isFile() && file.getName().contains("n.gz")&&file.getName().contains("hour"+dayOfYear_brdc)) {
-                    if (brdclatestFile == null || file.getTimestamp().after(brdclatestFile.getTimestamp())) {
-                        brdclatestFile = file;
+            // 声明状态变量
+            boolean isDirectoryEmpty = false;
+            boolean isPatternMismatch = false;
+            String dayOfYearFormatted = String.format("%03d", dayOfYear_brdc);
+            Handler handler = new Handler(Looper.getMainLooper());
+
+            try {
+                // 获取广播星历文件列表
+                FTPFile[] files = ftpClient.listFiles(remoteDirPath[3]);
+
+                if (files == null || files.length == 0) {
+                    isDirectoryEmpty = true;
+                } else {
+                    // 寻找最新的广播星历的.gz文件
+                    for (FTPFile file : files) {
+                        if (file.isFile()) {
+                            // 检查是否符合命名规则
+                            boolean matchesN = file.getName().contains("n.gz");
+                            boolean matchesHour = file.getName().contains("hour" + dayOfYearFormatted);
+
+                            if (matchesN && matchesHour) {
+                                if (brdclatestFile == null || file.getTimestamp().after(brdclatestFile.getTimestamp())) {
+                                    brdclatestFile = file;
+                                }
+                            } else {
+                                isPatternMismatch = true; // 记录存在文件但不符合规则的情况
+                            }
+                        }
                     }
                 }
-            }
-            // 如果找到最新的广播\精密星历的.gz文件，则下载
-            if (brdclatestFile != null) {
-                String remoteFilePath = remoteDirPath[3] + "/" + brdclatestFile.getName();
-                infile[0] = myDir.getPath()+"/"+brdclatestFile.getName();
-                Handler handler = new Handler(Looper.getMainLooper()); // 在这里声明handler变量
-                try (OutputStream outputStream = Files.newOutputStream(Paths.get(myDir.getPath() + "/" + brdclatestFile.getName()))) {
-                    boolean success = ftpClient.retrieveFile(remoteFilePath, outputStream);
-                    if (success) {
-                        FTPFile finalBrdclatestFile1 = brdclatestFile;
-                        handler.post(() ->
-                                Toast.makeText(context, "Broadcast ephemeris download successful"+ finalBrdclatestFile1.getName(), Toast.LENGTH_SHORT)
-                                        .show());
-                        Log.d(TAG, brdclatestFile.getName()
-                                + " has been downloaded successfully.");
-                    }else {
-                        handler.post(() ->
-                                Toast.makeText(context, "Download failed", Toast.LENGTH_SHORT).show());
-                        Log.d(TAG, brdclatestFile.getName() + " has been downloaded Failed.");
+
+                // 根据不同情况处理结果
+                if (brdclatestFile != null) {
+                    // --- 情况 1: 找到文件，尝试下载 ---
+                    String remoteFilePath = remoteDirPath[3] + "/" + brdclatestFile.getName();
+                    infile[0] = myDir.getPath() + "/" + brdclatestFile.getName();
+
+                    try (OutputStream outputStream = Files.newOutputStream(Paths.get(infile[0]))) {
+                        boolean success = ftpClient.retrieveFile(remoteFilePath, outputStream);
+                        if (success) {
+                            String fileName = brdclatestFile.getName();
+                            handler.post(() -> Toast.makeText(context, "Download successful: " + fileName, Toast.LENGTH_SHORT).show());
+                            Log.d(TAG, fileName + " has been downloaded successfully.");
+                        } else {
+                            handler.post(() -> Toast.makeText(context, "FTP server rejected download (Retrieve failed)", Toast.LENGTH_SHORT).show());
+                            Log.d(TAG, brdclatestFile.getName() + " download failed.");
+                        }
                     }
+                } else if (isDirectoryEmpty) {
+                    // --- 情况 2: 目录本身就是空的 ---
+                    handler.post(() -> Toast.makeText(context, "Error: Remote directory is empty", Toast.LENGTH_SHORT).show());
+                    Log.d(TAG, "No files found in the directory: " + remoteDirPath[3]);
+                } else if (isPatternMismatch) {
+                    // --- 情况 3: 有文件但都不符合命名规则 ---
+                    handler.post(() -> Toast.makeText(context, "Error: No files match 'hour" + dayOfYearFormatted + "n.gz'", Toast.LENGTH_SHORT).show());
+                    Log.d(TAG, "Files exist but naming pattern mismatch for DOY: " + dayOfYearFormatted);
+                } else {
+                    // --- 情况 4: 其他未知原因 ---
+                    handler.post(() -> Toast.makeText(context, "Broadcast ephemeris not found (Unknown error)", Toast.LENGTH_SHORT).show());
+                    Log.d(TAG, "General failure in finding ephemeris.");
                 }
-            } else {
-                new Handler(Looper.getMainLooper()).post(() -> Toast.makeText(context, "Broadcast ephemeris file not found", Toast.LENGTH_SHORT).show());
-                Log.d(TAG, "No files found in the directory.");
+
+            } catch (IOException e) {
+                // --- 情况 5: 网络或 IO 异常 ---
+                handler.post(() -> Toast.makeText(context, "Network error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                Log.e(TAG, "FTP operation failed", e);
             }
         }else if(option == 2)
         {

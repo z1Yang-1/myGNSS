@@ -209,6 +209,7 @@ public class MainActivity extends AppCompatActivity implements OnRtcmDataReceive
             outpath = "";
         }
         setOutputFilePath(outpath, outputFilePath);
+
         if(utc_hour<10&&utc_hour>=0){
             remoteDirPath[0] = "/pub/gps/data/hourly/"+Year+"/"+dayofyear+"/"+"0"+utc_hour;
         }else if(utc_hour<0){
@@ -216,6 +217,13 @@ public class MainActivity extends AppCompatActivity implements OnRtcmDataReceive
             dayofyear-=1;
             remoteDirPath[0] = "/pub/gps/data/hourly/"+Year+"/"+dayofyear+"/"+utc_hour;
         }
+
+        if(dayofyear>100){
+            remoteDirPath[3] = "/pub/gps/data/hourly/"+Year+"/"+dayofyear;
+        }else{
+            remoteDirPath[3] = "/pub/gps/data/hourly/"+Year+"/"+"0"+dayofyear;
+        }
+
         binding.appBarMain.fab.setOnClickListener(view -> {
             // 创建对话框视图
             @SuppressLint("ResourceType") View dialogView = getLayoutInflater().inflate(R.xml.dialog_radio_buttons, null);
@@ -295,6 +303,8 @@ public class MainActivity extends AppCompatActivity implements OnRtcmDataReceive
         outputFilePath[2] = outpath+"/myFolder/WUM0MGXULT_"+Year+"0"+dayOfYear+"0.clk";
     }
 
+
+
     public static boolean isGpsEnabled(Context context) {
         LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
@@ -336,6 +346,7 @@ public class MainActivity extends AppCompatActivity implements OnRtcmDataReceive
     public static void test(){
         navController.navigate(R.id.nav_home);
     }
+
     private void udEph(int option){
         runOnUiThread(() -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -360,14 +371,23 @@ public class MainActivity extends AppCompatActivity implements OnRtcmDataReceive
                                 }
                                 // 执行完成后关闭加载圈
                                 runOnUiThread(() -> {
-                                    Toast.makeText(MainActivity.this, "Update successful", Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(MainActivity.this, "Update successful", Toast.LENGTH_SHORT).show();
                                     progressDialog.dismiss();
                                 });
                             } catch (IOException e) {
                                 e.printStackTrace();
-                                // 如果发生异常也关闭加载圈
+                                String errorMsg = "Update failed: ";
+                                if (e instanceof java.net.UnknownHostException) {
+                                    errorMsg += "Cannot connect to server";
+                                } else if (e instanceof java.net.SocketTimeoutException) {
+                                    errorMsg += "Connection timeout";
+                                } else {
+                                    errorMsg += e.getMessage();
+                                }
+
+                                final String finalMsg = errorMsg;
                                 runOnUiThread(() -> {
-                                    Toast.makeText(MainActivity.this, "Update failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity.this, finalMsg, Toast.LENGTH_LONG).show();
                                     progressDialog.dismiss();
                                 });
                             }
